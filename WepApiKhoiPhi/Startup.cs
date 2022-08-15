@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WepApiKhoiPhi.DbContext;
 using WepApiKhoiPhi.Extensions;
+using WepApiKhoiPhi.Middleware;
 using WepApiKhoiPhi.Services;
 using WepApiKhoiPhi.Services.IServices;
 
@@ -55,7 +56,11 @@ namespace WepApiKhoiPhi
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            // global error handler
+            app.UseMiddleware<ErrorHandlerMiddleware>();
+
+            // custom jwt auth middleware
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
