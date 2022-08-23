@@ -65,6 +65,7 @@ namespace WepApiKhoiPhi
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
         
+        // map dữ liêu trong cái section appseting in file appsetting.json vào cho class appsettings
         private IConfiguration InitConfiguration(IWebHostEnvironment env)
         {
             //Config the app read values from appsettings base on current environment values.

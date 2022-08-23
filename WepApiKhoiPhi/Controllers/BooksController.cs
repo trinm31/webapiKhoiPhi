@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using WepApiKhoiPhi.Authorization;
 using WepApiKhoiPhi.DbContext;
 using WepApiKhoiPhi.Dtos;
 using WepApiKhoiPhi.Models;
@@ -11,6 +12,7 @@ namespace WepApiKhoiPhi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
