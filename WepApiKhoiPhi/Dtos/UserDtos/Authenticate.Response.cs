@@ -1,3 +1,5 @@
+using WepApiKhoiPhi.Models;
+
 namespace WepApiKhoiPhi.Dtos.UserDtos
 {
     public class AuthenticateResponse
@@ -6,6 +8,7 @@ namespace WepApiKhoiPhi.Dtos.UserDtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
+        public Role Role { get; set; }
         public string Token { get; set; }
     }
 }

@@ -63,6 +63,7 @@ namespace WepApiKhoiPhi.Controllers
             return Ok(book);
         }
         
+        [Authorize(Role.Admin)]
         [HttpDelete("{id:int}")]
         public IActionResult Delete([FromRoute] int id)
         {
