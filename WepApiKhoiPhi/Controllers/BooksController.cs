@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WepApiKhoiPhi.Authorization;
-using WepApiKhoiPhi.DbContext;
 using WepApiKhoiPhi.Dtos;
 using WepApiKhoiPhi.Models;
 using WepApiKhoiPhi.Services.IServices;
@@ -12,7 +9,7 @@ namespace WepApiKhoiPhi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -63,7 +60,7 @@ namespace WepApiKhoiPhi.Controllers
             return Ok(book);
         }
         
-        [Authorize(Role.Admin)]
+        //[Authorize(Role.Admin)]
         [HttpDelete("{id:int}")]
         public IActionResult Delete([FromRoute] int id)
         {
@@ -72,6 +69,13 @@ namespace WepApiKhoiPhi.Controllers
             if (!result)
                 return BadRequest();
             
+            return Ok();
+        }
+        
+        [HttpGet("users/{id:int}/books/{bookId:int}")]
+        // http://localhost:5001/api/books/users/1/books
+        public IActionResult Favourite([FromRoute] int id, int bookId)
+        {
             return Ok();
         }
     }
