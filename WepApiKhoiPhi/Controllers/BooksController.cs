@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using WepApiKhoiPhi.Authorization;
 using WepApiKhoiPhi.Dtos;
 using WepApiKhoiPhi.Models;
 using WepApiKhoiPhi.Services.IServices;
@@ -9,7 +10,7 @@ namespace WepApiKhoiPhi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
